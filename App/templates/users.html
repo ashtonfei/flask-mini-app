@@ -1,0 +1,47 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}
+Users
+{% endblock %}
+
+{% block navbar %}
+{{nav.top.render()}}
+{% endblock %}
+
+{% block content %}
+
+<div class='container'>
+    <div class="page-header">
+        <h1>Users</h1>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">Users</div>
+        <div class="panel-body">
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                {% for header in headers:%}
+                    <th>{{header.label}}</th>
+                {% endfor%}
+            </tr>
+        </thead>    
+        <tbody class="">
+            {% for user in items: %}
+            <tr> 
+                {% for header in headers:%}   
+                    {% if header.key == 'id': %}
+                        <th>{{user.id}}</th>
+                    {% elif header.key == 'username': %}
+                        <td><a href="{{url_for('user', id=user.id)}}">{{user[header.key]}}</a></td>
+                    {% else: %}
+                    <td>{{user[header.key]}}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+      </div>
+    
+</div>
+{% endblock%}
