@@ -33,6 +33,23 @@ def user(id):
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
+    if form.validate_on_submit():
+        user = User(
+            username=form.username.data,
+            email=form.email.data,
+            password_hash=form.password.data,
+            first_name=form.first_name.data,
+            middle_name=form.middle_name.data,
+            last_name=form.last_name.data,
+            phone=form.phone.data,
+            gender=form.gender.data)
+        db.session.add(user)
+        db.session.commit()
+
+        flash(message='New user has been created successfully, you can now login to the system.', category='success')
+        return redirect(url_for('login'))
+    else:
+        print(form.errors)
     return render_template('register.html', form=form, headers=REGISTER_HEADERS)
 
 
