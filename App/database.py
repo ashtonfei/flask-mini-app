@@ -10,6 +10,7 @@ class User(db.Model):
     email = db.Column(db.String(100), nullable=False, unique=True)
     phone = db.Column(db.String(100), nullable=False, unique=True)
     gender = db.Column(db.String(10), nullable=False)
+    password_hash = db.Column(db.String(16), nullable=False)
 
 
 def __repr__(self):
