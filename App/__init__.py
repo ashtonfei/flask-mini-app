@@ -5,6 +5,7 @@ from flask_nav import Nav
 from flask_nav.elements import *
 
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 
 # app configuration
 app = Flask(__name__)
@@ -28,3 +29,7 @@ nav.init_app(app)
 
 # apply database
 db = SQLAlchemy(app)
+
+# apply login manager
+login_manager = LoginManager()
+login_manager.init_app(app)
