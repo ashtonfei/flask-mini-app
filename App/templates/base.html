@@ -12,14 +12,14 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body class='text-white' style='background-color: #000000; padding-top: 66px; padding-bottom: 66px;'>
     <!-- Navbar -->
     <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand h1" href="{{ url_for('home') }}">Mini App</a>
+        <a class="navbar-brand text-warning" href="{{ url_for('home') }}">Mini App</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -58,5 +58,6 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
+    <script src="{{url_for('static', filename='javascript.js')}}"></script>
   </body>
 </html>

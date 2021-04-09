@@ -16,7 +16,6 @@ LOGIN_HEADERS = [
 ]
 
 REGISTER_HEADERS = [
-    {'key': 'id', 'label': 'ID', 'required': True, 'type': 'primary_key'},
-    {'key': 'password', 'label': 'Password', 'required': True, "type": 'password'},
-    {'key': 'password', 'label': 'Password', 'required': True, 'type': 'password'},
+    {'key': 'username', 'label': 'User Name', 'required': True, 'type': 'text'},
+    {'key': 'password', 'label': 'Password', 'required': True, 'type': 'text'},
 ]

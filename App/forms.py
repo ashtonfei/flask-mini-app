@@ -4,21 +4,21 @@ from wtforms.validators import DataRequired, Length, EqualTo
 
 
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Log In')
+    email = StringField(label='Email', validators=[DataRequired()])
+    password = PasswordField(label='Password', validators=[DataRequired()])
+    submit = SubmitField(label='Log In')
 
 
 class RegisterForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    username = StringField(label='User name', validators=[DataRequired()])
+    email = StringField(label='Email', validators=[DataRequired()])
+    password = PasswordField(label='Password', validators=[DataRequired()])
     password_confirm = PasswordField(
-        'Confirm Password', validators=[EqualTo('password'), DataRequired()])
-    first_name = StringField('First Name', validators=[DataRequired()])
-    middle_name = StringField('Middle Name', validators=[])
-    last_name = StringField('Last Name', validators=[DataRequired()])
-    phone = StringField('Phone', validators=[DataRequired()])
-    gender = SelectField('Gender', choices=['Male', 'Female'], validators=[
+        label='Confirm password', validators=[EqualTo('password'), DataRequired()])
+    first_name = StringField(label='First name', validators=[DataRequired()])
+    middle_name = StringField(label='Middle name', validators=[])
+    last_name = StringField(label='Last name', validators=[DataRequired()])
+    phone = StringField(label='Phone', validators=[DataRequired()])
+    gender = SelectField(label='Gender', choices=['Male', 'Female'], validators=[
                          DataRequired()], default="Male")
-    submit = SubmitField('Register')
+    submit = SubmitField(label='Register')

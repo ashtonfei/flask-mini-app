@@ -1,6 +1,7 @@
 from App import app, db, login_manager
 from flask import render_template, url_for, redirect, flash, request, abort
 from flask_login import login_user, logout_user, current_user, login_required
+
 from App.database import User
 from App.forms import LoginForm, RegisterForm
 
@@ -14,6 +15,7 @@ def load_user(user_id):
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    print(current_user)
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
     return render_template('home.html', current_user=current_user)
@@ -65,6 +67,7 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+
     if form.validate_on_submit():
         email = form.email.data
         password = form.password.data
@@ -83,6 +86,7 @@ def login():
             flash(
                 message=f'Wrong user or password, please try another one.', category='danger')
     else:
+        print(form.errors)
         pass
     return render_template('login.html', current_user=current_user, form=form, headers=LOGIN_HEADERS)
 
