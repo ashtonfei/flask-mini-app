@@ -7,14 +7,13 @@ Users
 
 <div class='container'>
     <div class="page-header">
-        <h1>Welcome, {{user.first_name}} {{user.last_name}}</h1>
+        <h1>{{current_user.first_name}} {{current_user.last_name}}</h1>
     </div>
     <div class="panel panel-info">
-        <div class="panel-heading">user.username</div>
         <div class="panel-body">
             <ul class="list-group">
                 {% for header in headers: %}
-                <li class="list-group-item">{{header.label}}: {{user[header.key]}}</li>
+                <li class="list-group-item">{{header.label}}: {{current_user[header.key]}}</li>
                 {% endfor %}
               </ul>
         </div>
