@@ -34,11 +34,11 @@ def users():
     return render_template('users.html', current_user=current_user, items=items, headers=USER_HEADERS)
 
 
-@app.route('/user/<id>', methods=['GET', 'POST'])
+@app.route('/users/<id>', methods=['GET', 'POST'])
 @login_required
 def user(id):
     user = User.query.filter_by(id=id).first()
-    return render_template('user.html', current_user=current_user, headers=USER_HEADERS)
+    return render_template('user.html', user=user, headers=USER_HEADERS)
 
 
 @app.route('/register', methods=['GET', 'POST'])

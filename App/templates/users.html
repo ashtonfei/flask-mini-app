@@ -5,15 +5,12 @@ Users
 
 {% block content %}
 
-<div class='container'>
-    <div class="page-header">
-        <h1>Users</h1>
+<div class='container py-2 mt-2'>
+    <div class="mt-2 mb-5 text-warning">
+        <h2>Users</h2>
     </div>
-    <div class="panel panel-info">
-        <div class="panel-heading">Users</div>
-        <div class="panel-body">
-        </div>
-        <table class="table table-striped">
+    <div class="table-responsive">
+        <table class="table table-dark">
             <thead>
             <tr>
                 {% for header in headers:%}
@@ -21,14 +18,14 @@ Users
                 {% endfor%}
             </tr>
         </thead>    
-        <tbody class="">
+        <tbody class="table-striped">
             {% for user in items: %}
             <tr> 
                 {% for header in headers:%}   
                     {% if header.key == 'id': %}
                         <th>{{user.id}}</th>
                     {% elif header.key == 'username': %}
-                        <td><a href="{{url_for('user', id=user.id)}}">{{user[header.key]}}</a></td>
+                        <td><a href="{{url_for('user', id=user.id)}}" class="link-warning">{{user[header.key]}}</a></td>
                     {% else: %}
                     <td>{{user[header.key]}}</td>
                     {% endif %}
@@ -37,7 +34,6 @@ Users
             {% endfor %}
         </tbody>
         </table>
-      </div>
-    
+    </div>
 </div>
 {% endblock%}

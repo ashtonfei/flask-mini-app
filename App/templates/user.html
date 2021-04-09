@@ -4,20 +4,27 @@ Users
 {% endblock %}
 
 {% block content %}
-
-<div class='container'>
-    <div class="page-header">
-        <h1>{{current_user.first_name}} {{current_user.last_name}}</h1>
+<div class='container py-2 mt-2'>
+    <div class="mt-2 mb-5 text-warning">
+        <h2>{{user.first_name}} {{user.last_name}}</h2>
     </div>
-    <div class="panel panel-info">
-        <div class="panel-body">
-            <ul class="list-group">
-                {% for header in headers: %}
-                <li class="list-group-item">{{header.label}}: {{current_user[header.key]}}</li>
-                {% endfor %}
-              </ul>
-        </div>
-        
-      </div>
+    <div class="table-responsive">
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+        </thead>    
+        <tbody class="table-striped">
+            {% for header in headers %}
+            <tr> 
+                <th>{{ header.label }}</th>
+                <td>{{ user[header.key] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
 </div>
 {% endblock%}
