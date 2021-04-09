@@ -1,17 +1,9 @@
-{% extends "bootstrap/base.html" %}
-
-{% block title %}
-Home
-{% endblock %}
-
-{% block navbar %}
-{{nav.top.render()}}
-{% endblock %}
-
+{% extends "base.html" %} 
+{% block title %} Home {% endblock %} 
 {% block content %}
-<div class='container'>
-    <div class="page-header">
-        <h1>Home, {{current_user.first_name}}</h1>
-    </div>
+<div>
+  <div class="page-header">
+    <h1>Home, {{current_user.first_name}}</h1>
+  </div>
 </div>
-{% endblock%}
+{% endblock %}

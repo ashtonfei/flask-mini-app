@@ -1,6 +1,6 @@
 from App import app, db, login_manager
 from flask import render_template, url_for, redirect, flash, request, abort
-from flask_login import login_user
+from flask_login import login_user, current_user
 from App.database import User
 from App.forms import LoginForm, RegisterForm
 
@@ -15,7 +15,7 @@ def load_user(user_id):
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html')
+    return render_template('home.html', user=current_user)
 
 
 @app.route('/about', methods=['GET', 'POST'])
