@@ -1,14 +1,30 @@
 {% extends "base.html" %}
 {% block title %}
-About
-{% endblock %}
-
-{% block navbar %}
-{{nav.top.render()}}
+Profile
 {% endblock %}
 
 {% block content %}
-<div class="page-header">
-    <h1>About</h1>
+<div class='container py-2 mt-2'>
+    <div class="mt-2 mb-5 text-warning">
+        <h2>{{current_user.first_name}} {{current_user.last_name}}</h2>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody class="table-striped">
+                {% for header in headers %}
+                <tr>
+                    <th>{{ header.label }}</th>
+                    <td>{{ current_user[header.key] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock%}

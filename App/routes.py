@@ -24,7 +24,7 @@ def home():
 @app.route('/about', methods=['GET', 'POST'])
 @login_required
 def about():
-    return render_template('about.html', current_user=current_user)
+    return render_template('about.html', current_user=current_user, headers=USER_HEADERS)
 
 
 @app.route('/users', methods=['GET', 'POST'])
