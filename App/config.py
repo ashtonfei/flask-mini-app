@@ -8,6 +8,7 @@ USER_HEADERS = [
     {'key': 'email', 'label': 'Email', 'required': True, 'type': 'text'},
     {'key': 'phone', 'label': 'Phone', 'required': True, 'type': 'text'},
     {'key': 'gender', 'label': 'Gender', 'required': True, 'type': 'text'},
+    {'key': 'password_hash', 'label': 'Password', 'required': True, 'type': 'text'},
 ]
 
 LOGIN_HEADERS = [

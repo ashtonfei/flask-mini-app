@@ -59,8 +59,6 @@ def register():
 
         flash(message='New user has been created successfully, you can now login to the system.', category='warning')
         return redirect(url_for('login'))
-    else:
-        pass
     return render_template('register.html', current_user=current_user, form=form, headers=REGISTER_HEADERS)
 
 
@@ -85,9 +83,6 @@ def login():
         else:
             flash(
                 message=f'Wrong user or password, please try another one.', category='danger')
-    else:
-        print(form.errors)
-        pass
     return render_template('login.html', current_user=current_user, form=form, headers=LOGIN_HEADERS)
 
 

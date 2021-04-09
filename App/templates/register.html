@@ -9,52 +9,121 @@ Register
     <div class="mt-2 mb-5 text-warning">
         <h2>Register</h2>
     </div>
-    <form method='POST' >
+    <form method='POST' class="needs-validation" novalidate>
         {{ form.hidden_tag() }}
         <div class='row'>
             <div class="mb-3 col-md-6">
                 {{form.username.label(class='form-label')}}
+                {% if form.errors.username %}
+                {{form.username(class='form-control is-invalid')}}
+                <div class="invalid-feedback">
+                    {{form.errors.username[0]}}
+                </div>
+                {% else %}
                 {{form.username(class='form-control')}}
+                {% endif %}
+
             </div>
             <div class="mb-3 col-md-6">
                 {{form.email.label(class='form-label')}}
+                {% if form.errors.email %}
+                {{form.email(class='form-control is-invalid')}}
+                <div class="invalid-feedback">
+                    {{form.errors.email[0]}}
+                </div>
+                {% else %}
                 {{form.email(class='form-control')}}
+                {% endif %}
             </div>
             <div class="mb-3 col-md-6">
                 {{form.password.label(class='form-label')}}
+                {% if form.errors.password %}
+                {{form.password(class='form-control is-invalid')}}
+                <div class="invalid-feedback">
+                    {{form.errors.password[0]}}
+                </div>
+                {% else %}
                 {{form.password(class='form-control')}}
+                {% endif %}
             </div>
             <div class="mb-3 col-md-6">
                 {{form.password_confirm.label(class='form-label')}}
+                {% if form.errors.password_confirm %}
+                {{form.password_confirm(class='form-control is-invalid')}}
+                <div class="invalid-feedback">
+                    {{form.errors.password_confirm[0]}}
+                </div>
+                {% else %}
                 {{form.password_confirm(class='form-control')}}
+                {% endif %}
             </div>
 
             <div class="mb-3 col-md-4">
                 {{form.first_name.label(class='form-label')}}
+                {% if form.errors.first_name %}
+                {{form.first_name(class='form-control is-invalid')}}
+                <div class="invalid-feedback">
+                    {{form.errors.first_name[0]}}
+                </div>
+                {% else %}
                 {{form.first_name(class='form-control')}}
+                {% endif %}
+
             </div>
             <div class="mb-3 col-md-4">
                 {{form.middle_name.label(class='form-label')}}
+                {% if form.errors.middle_name %}
+                {{form.middle_name(class='form-control is-invalid')}}
+                <div class="invalid-feedback">
+                    {{form.errors.middle_name[0]}}
+                </div>
+                {% else %}
                 {{form.middle_name(class='form-control')}}
+                {% endif %}
+
             </div>
             <div class="mb-3 col-md-4">
                 {{form.last_name.label(class='form-label')}}
+                {% if form.errors.last_name %}
+                {{form.last_name(class='form-control is-invalid')}}
+                <div class="invalid-feedback">
+                    {{form.errors.last_name[0]}}
+                </div>
+                {% else %}
                 {{form.last_name(class='form-control')}}
+                {% endif %}
+
             </div>
             <div class="mb-3 col-md-4">
                 {{form.gender.label(class='form-label')}}
+                {% if form.errors.gender %}
+                {{form.gender(class='form-control is-invalid')}}
+                <div class="invalid-feedback">
+                    {{form.errors.gender[0]}}
+                </div>
+                {% else %}
                 {{form.gender(class='form-control')}}
+                {% endif %}
+
             </div>
             <div class="mb-3 col-md-4">
                 {{form.phone.label(class='form-label')}}
+                {% if form.errors.phone %}
+                {{form.phone(class='form-control is-invalid')}}
+                <div class="invalid-feedback">
+                    {{form.errors.phone[0]}}
+                </div>
+                {% else %}
                 {{form.phone(class='form-control')}}
+                {% endif %}
             </div>
         </div>
         <div class="my-3 d-md-inline-block">
             {{form.submit(class='btn btn-warning form-control')}}
         </div>
         <div class="pb-3">
-            <p class="small">Already have an account? <a class='link-warning pl-3' href="{{ url_for('login') }}">Log in</a></p>
+            <p class="small">Already have an account? <a class='link-warning pl-3' href="{{ url_for('login') }}">Log
+                    in</a></p>
         </div>
     </form>
 </div>
