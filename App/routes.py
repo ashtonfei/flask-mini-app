@@ -57,7 +57,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        flash(message='New user has been created successfully, you can now login to the system.', category='success')
+        flash(message='New user has been created successfully, you can now login to the system.', category='warning')
         return redirect(url_for('login'))
     else:
         pass
@@ -77,7 +77,7 @@ def login():
                 login_user(user)
                 print(current_user)
                 flash(
-                    message=f'Welcome, {user.first_name} {user.last_name}', category='success')
+                    message=f'Welcome, {user.first_name} {user.last_name}', category='warning')
                 return redirect(url_for('home'))
             else:
                 flash(
